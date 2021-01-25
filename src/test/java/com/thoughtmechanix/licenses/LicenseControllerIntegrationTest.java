@@ -2,18 +2,15 @@ package com.thoughtmechanix.licenses;
 
 import java.net.URL;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-@ExtendWith(SpringExtension.class)
+import static org.assertj.core.api.Assertions.assertThat;
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class LicenseControllerIntegrationTest {
 
@@ -21,6 +18,7 @@ public class LicenseControllerIntegrationTest {
     private int port;
 
     private URL base;
+    private String response;
 
     @Autowired
     private TestRestTemplate template;
@@ -31,8 +29,8 @@ public class LicenseControllerIntegrationTest {
     }
 
     @Test
-    public void getHello() throws Exception {
-        ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
-        Assertions.assertThat(response.getBody()).isEqualTo("Hello, World!");
+    public void testHello() throws Exception {
+        response = template.getForObject(base.toString(), String.class);
+        assertThat(response).contains("Hello, World!");
     }
 }
