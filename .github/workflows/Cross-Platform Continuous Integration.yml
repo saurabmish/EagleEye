@@ -30,6 +30,9 @@ jobs:
         ./mvnw.cmd clean verify
         ./mvnw.cmd clean install
         ./mvnw.cmd test
+      shell: powershell
+
+    - name: Build project with Maven on *NIX
       if: runner.os == 'Linux' or runner.os == 'macOS'
       run: |
         ./mvnw clean verify
@@ -37,3 +40,4 @@ jobs:
         ./mvnw test
         awk -F, '{ instructions += $4 + $5; covered += $5 } END { print covered, "/", instructions, " instructions covered"; print 100*covered/instructions, "% covered" }' target/site/jacoco/jacoco.csv
         bash <(curl -s https://codecov.io/bash)
+      shell: bash
