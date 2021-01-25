@@ -1,0 +1,12 @@
+## Project ##
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+## Editor ##
+.vscode/
+
+## OS ##
+.DS_Store
