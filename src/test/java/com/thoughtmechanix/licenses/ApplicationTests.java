@@ -14,10 +14,7 @@ class ApplicationTests {
 
 	@Test
 	public void contextLoads() throws Exception {
-		assertThat(controller).isNotNull();
-	}
-
-	public void applicationStarts() {
 		Application.main(new String[] {});
+		assertThat(controller).isNotNull();
 	}
 }
