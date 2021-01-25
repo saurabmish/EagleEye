@@ -1,3 +1,7 @@
+![Cross-Platform Continuous Integration](https://github.com/saurabmish/EagleEye/workflows/Cross-Platform%20Continuous%20Integration/badge.svg)
+[![codecov](https://codecov.io/gh/saurabmish/EagleEye/branch/master/graph/badge.svg?token=qBJn7OI9QM)](https://codecov.io/gh/saurabmish/EagleEye)
+[![Maintainability](https://api.codeclimate.com/v1/badges/81662c65bf00619a8762/maintainability)](https://codeclimate.com/github/saurabmish/EagleEye/maintainability)
+
 # EagleEye
 
 From "Spring Microservices in Action":
