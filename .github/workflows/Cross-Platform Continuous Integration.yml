@@ -1,6 +1,4 @@
-# This workflow will build a Java project with Maven
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
-name: Spring Boot CI
+name: Cross-Platform Continuous Integration
 
 on: [push, pull_request]
 
@@ -32,9 +30,7 @@ jobs:
         ./mvnw.cmd clean verify
         ./mvnw.cmd clean install
         ./mvnw.cmd test
-
-    - name: Build project with Maven on *NIX
-      if: runner.os != 'windows'
+      else:
       run: |
         ./mvnw clean verify
         ./mvnw clean install
