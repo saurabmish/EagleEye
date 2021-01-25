@@ -25,12 +25,12 @@ jobs:
         restore-keys: ${{ runner.os }}-m2 
 
     - name: Build project with Maven on Windows
-      if: runner.os == 'windows'
+      if: runner.os == 'Windows'
       run: |
         ./mvnw.cmd clean verify
         ./mvnw.cmd clean install
         ./mvnw.cmd test
-      else:
+      if: runner.os == 'Linux' or runner.os == 'macOS'
       run: |
         ./mvnw clean verify
         ./mvnw clean install
